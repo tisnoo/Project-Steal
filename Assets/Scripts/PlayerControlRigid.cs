@@ -49,6 +49,11 @@ public class PlayerControlRigid : NetworkBehaviour
         {
             updownMovement = Input.GetAxisRaw("Vertical");
             leftRightMovement = Input.GetAxisRaw("Horizontal");
+
+            if (Input.GetKeyDown("space"))
+            {
+                SpawnerControl.Instance.SpawnObjectsServerRpc(transform.position);
+            }
         }
 
         ClientVisuals();
@@ -100,7 +105,7 @@ public class PlayerControlRigid : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void UpdatePlayerStateServerRpc(PlayerState state)
     {
         networkPlayerState.Value = state;

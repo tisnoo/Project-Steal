@@ -80,6 +80,10 @@ namespace Assets.Scripts
 
         private async Task initialize()
         {
+
+            NetworkObjectPool.Instance.InitializePool();
+
+
             InitializationOptions options = new InitializationOptions().SetEnvironmentName(environment);
 
             await UnityServices.InitializeAsync(options);

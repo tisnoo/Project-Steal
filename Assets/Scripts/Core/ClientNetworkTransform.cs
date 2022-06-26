@@ -27,8 +27,4 @@ using UnityEngine;
             }
         }
 
-        protected override bool OnIsServerAuthoritatitive()
-        {
-            return false;
-        }
     }
